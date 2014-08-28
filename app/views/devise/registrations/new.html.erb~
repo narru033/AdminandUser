@@ -1,0 +1,44 @@
+<h2>Sign up</h2>
+Already have an account? <%= render "devise/shared/links" %>
+<br/>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+	<div><%= f.label :user_name %><br />
+  <%= f.text_field :user_name, autofocus: true,:class => 'textfiled' %></div>
+  
+  <div><%= f.label :email %><br />
+  <%= f.email_field :email, :class => 'textfiled' %></div>
+
+  <div><%= f.label :password %> <% if @validatable %><i>(<%= @minimum_password_length %> characters minimum)</i><% end %><br />
+    <%= f.password_field :password, autocomplete: "off",:class => 'textfiled' %></div>
+
+  <div><%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off",:class => 'textfiled' %></div>
+    
+	<div><%= f.label :first_name %><br />
+  <%= f.text_field :first_name, :class => 'textfiled' %></div>
+  
+  <div><%= f.label :last_name %><br />
+  <%= f.text_field :last_name,:class => 'textfiled' %></div>
+  
+  <div><b><%= f.label :Gender %></b><br/>
+  <%= f.radio_button :gender, 'male' %>
+	<%= f.label :Male %>
+	<%= f.radio_button :gender, 'female' %>
+	<%= f.label :Female %></div>
+  
+  <div><b><%= f.label :Date_of_birth %></b><br/>
+  <%= f.date_select :date_of_birth, {:start_year => 2000, :end_year => 1947, :order => [:day, :month, :year], :prompt => {:month => 'Month', :day => 'Day', :year => 'Year'}} %></div>
+  
+  <div><%= f.label :Mobile_Number %><br />
+  <%= f.telephone_field :mobile_number, :class => 'textfiled' %></div>
+  
+  <div><%= f.label :Address %><br />
+  <%= f.text_area :address, :rows => 3, :cols => 40, :placeholder => 'Enter text here...' %></div>
+	
+	<!--<div><%= f.check_box :is_active, {checked: true}, true, false %>
+	<%= f.label :I_accept_terms_and_conditions %></div><br/>-->
+	
+  <div><%= f.submit "Sign up" %></div>
+<% end %>

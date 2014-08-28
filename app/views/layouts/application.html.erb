@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Adminapp</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <%= favicon_link_tag image_path("favicon.ico") %>
+</head>
+<body>
+<div id="container" align="center">
+	<div class="top-section">
+		<div class="top-section-header">
+			<img src="/assets/logo.png" alt="ruby logo" height="55%" width="100%">
+		</div>
+		<div>
+			<% if user_signed_in? %>
+				<h3>Welcome To Book Store</h3>
+					<div class="controls">
+						<% @current_user = current_user.id %>
+						<%= link_to current_user.email, user_path(current_user), :class => 'btn' %>&nbsp;&nbsp;&nbsp;	
+						<%= link_to "Sign Out", destroy_user_session_path, :method => :delete, :class => 'btn' %>
+					</div>
+			<% else %>
+				<h4>Login Please</h4>
+				<div class="logins">
+					<%= link_to "Sign In", new_user_session_path, :method => :get, :class => 'btn' %>&nbsp;&nbsp;&nbsp;
+					<%= link_to "Sign up", new_user_registration_path, :method => :get, :class => 'btn' %>
+				</div>
+			<% end %>
+		</div>
+	</div>
+</div>
+<div class="errormsg">
+		<% if notice %>
+  		<p class="alert-success"><%= notice %></p>
+		<% end %>
+		<% if alert %>
+  		<p class="alert-danger"><%= alert %></p>
+		<% end %>
+</div>
+<%= yield %>
+</body>
+</html>

@@ -1,0 +1,4 @@
+<div style="background-color:yellow;width=20px;">
+  <h4>Review by <%= comment.user.first_name %></h4>
+  <p class="comment"><h4 style="colo:red";>Comment:</h4><%= comment.comment %></p>
+</div>

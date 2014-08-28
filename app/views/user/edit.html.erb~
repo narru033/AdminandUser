@@ -1,0 +1,37 @@
+<h1>Editing User Profile</h1>
+<%= form_for @user do |f| %>
+ 
+  <div><%= f.label :user_name %><br />
+  <%= f.text_field :user_name, autofocus: true,:class => 'textfiled' %></div>
+  
+  <div><%= f.label :email %><br />
+  <%= f.email_field :email, :class => 'textfiled' %></div>
+    
+	<div><%= f.label :first_name %><br />
+  <%= f.text_field :first_name, :class => 'textfiled' %></div>
+  
+  <div><%= f.label :last_name %><br />
+  <%= f.text_field :last_name,:class => 'textfiled' %></div>
+  
+  <div><b><%= f.label :Gender %></b><br/>
+  <%= f.radio_button :gender, 'male' %>
+	<%= f.label :Male %>
+	<%= f.radio_button :gender, 'female' %>
+	<%= f.label :Female %></div>
+  
+  <div><b><%= f.label :Date_of_birth %></b><br/>
+  <%= f.date_select :date_of_birth, {:start_year => 2000, :end_year => 1947, :order => [:day, :month, :year], :prompt => {:month => 'Month', :day => 'Day', :year => 'Year'}} %></div>
+  
+  <div><%= f.label :Mobile_Number %><br />
+  <%= f.telephone_field :mobile_number, :class => 'textfiled' %></div>
+  
+  <div><%= f.label :Address %><br />
+  <%= f.text_area :address, :rows => 3, :cols => 40, :placeholder => 'Enter text here...' %></div>
+
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>
+<br/>
+<%= link_to 'Show', user_path(@user) %> |
+<%= link_to 'Cancel', home_index_path %>

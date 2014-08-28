@@ -1,0 +1,56 @@
+<h3><%= @book.name %> Book</h3>
+<p>
+  <b>Book Name:</b>
+  <%= @book.name %>
+</p>
+
+<p class="avatar">
+  <%= image_tag @book.image.url(:large) %>
+</p>
+
+<p>
+  <b>Author Name:</b>
+  <%= @book.author.first_name %>
+</p>
+
+<p>
+  <b>Genre Name:</b>
+  <%= @book.genre.name %>
+</p>
+
+<p>
+  <b>Book Cost:</b>
+  <%= number_to_currency @book.price %>
+</p>
+
+<p>
+  <b>Published Date:</b>
+  <%= @book.created_at %>
+</p> 
+
+<p>
+  <b>Book Video:</b><br/>
+  <%= video_tag @book.video.url, :autoplay => false, :size => "480x320", :controls => true %>
+</p>
+
+<p>
+  <img src="/assets/like.png" alt="ruby logo" height="2%" width="2%"> <%= @book.likes %>    <img src="/assets/unlike.png" alt="ruby logo" height="2%" width="2%"> <%= @book.unlikes %>
+</p>
+<b><h5>COMMENTS:</h5></b>
+
+	<% Comment.where(:book_id => @book.id).each do |r| %>
+		<b><%= r.user.first_name %>    <%= r.user.last_name %>:</b><br/>
+		<%= r.comment %><br/>
+	<% end %>
+	
+	<%= form_for([@book, @book.comments.build]) do |f| %>
+		<div>
+		  <b><i><%= f.label :Comment %></i></b><br>
+		  <%= f.text_area :comment, :rows => 6, :cols => 40, :placeholder => 'Enter text here...' %>
+		</div>
+		
+		<div>
+		  <%= f.submit "Post Comment" %>
+		</div>
+	<% end %><br/>
+<%= link_to 'Home', home_index_path, :class => 'btn' %>

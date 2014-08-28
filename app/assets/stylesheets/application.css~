@@ -1,0 +1,77 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ .errormsg .alert-success{
+  color:green;
+ }
+ .errormsg .alert-danger{
+  color:red;
+ }
+ .rightnav{
+ 	float:right;
+ 	margin-right:200px;
+ }
+ .textfiled{
+	width: calc(16% - 22px);
+	border: 1px solid #c9d0d6;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	font-size: 0.95em;
+	font-family: Helvetica, Arial, sans-serif;
+	outline: none;
+	padding: 8px 10px 7px;
+}
+ body{
+ 	line-height: 230%;
+ }
+ h3{
+	font-size: 35px;
+	line-height: 1;
+	margin-bottom: 1em;
+	color:#A9F5E1;
+}
+ .logins
+ {
+  margin-top: 80px;
+  margin-right: 10px;
+  float:right;
+	border-radius: 10px;
+}
+.controls{
+	float:right;
+	margin-right: 10px;
+	margin-top: 50px;
+}
+.top-section-header img{
+	border-radius: 15px;
+	max-width: 65%;
+	height:105px;
+	float: left;
+}
+div.top-section {
+    height:100px;
+    width:100%;
+    color:gray;
+    background:url(/assets/images1.jpg);
+    float:left;
+    border-radius: 15px;
+}
+div.top-section-header{
+      height:150px;
+      float:left;
+      width:250px;
+      border-radius: 15px;
+}
