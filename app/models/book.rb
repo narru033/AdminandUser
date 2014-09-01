@@ -2,6 +2,7 @@ class Book < ActiveRecord::Base
   belongs_to :author
   belongs_to :genre
   has_many :comments
+  has_many :opinions
   has_attached_file :image, :styles => { :medium => "238x238>", 
                                          :thumb => "100x100>",
                                          :large => "500x400>"

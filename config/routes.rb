@@ -5,16 +5,19 @@ Rails.application.routes.draw do
 	#get 'user/show'
 	
 	resources :user
-  get 'home/index'
-
-  get '/home/:id', to: 'home#show', as: 'home'
-	#resources :home
+	
+	resources :home do 
+		member do
+			get 'like'
+			get 'unlike'
+		end
+	end
+ 
   devise_for :users
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   
   root "home#index"
-  
  
   resources :books do
   	resources :comments

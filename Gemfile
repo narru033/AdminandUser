@@ -33,6 +33,7 @@ gem 'activeadmin', github: 'gregbell/active_admin'
 # gem 'unicorn'
 gem 'devise'
 gem 'paperclip'
+gem 'jquery-star-rating-rails'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

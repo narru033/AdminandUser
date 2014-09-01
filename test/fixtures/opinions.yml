@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: MyString
+  _id: 
+  book: MyString
+  _id: 
+  like: MyString
+  : false
+  unlike: MyString
+  : false
+
+two:
+  user: MyString
+  _id: 
+  book: MyString
+  _id: 
+  like: MyString
+  : false
+  unlike: MyString
+  : false

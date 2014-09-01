@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, :timeoutable
+         :recoverable, :rememberable, :trackable, :validatable, :timeoutable, :confirmable
          
   def active_for_authentication?
 		super && self.is_active # i.e. super && self.is_active
@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
 		"Sorry, this account has been deactivated."
 	end
 	has_many :comments
+	has_many :opinions
 	after_initialize :defaults
 	def defaults
     self.is_active = true
